@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/season2"
-            android:id="@+id/img"/>
+        android:adjustViewBounds="true"
+        android:src="@drawable/season2"
+        android:id="@+id/img"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spoiler title"
+        android:textSize="25sp"
+        android:id="@+id/tvTitle"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="Season 2"
-            android:id="@+id/tvTitle"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Some info"
+            android:text="bla-bla-bla"
             android:textSize="16sp"
             android:id="@+id/tvInfo"/>
-    </LinearLayout>
+    </ScrollView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_weight="1">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,4 +44,4 @@
             android:layout_alignParentRight="true"
             android:id="@+id/btnNext"/>
     </RelativeLayout>
-</RelativeLayout>
+</LinearLayout>
