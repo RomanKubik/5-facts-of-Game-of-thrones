@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">5 facts of Game of thrones</string>
+
+    <string-array name="seasons">
+        <item>Season 1</item>
+        <item>Season 2</item>
+        <item>Season 3</item>
+        <item>Season 4</item>
+        <item>Season 5</item>
+    </string-array>
+
+    <string-array name="seasons_title">
+        <item>Ned is beheaded in front of his daughters</item>
+        <item>The iron islands</item>
+        <item>The red wedding</item>
+        <item>Joffrey Is Poisoned and Dies at His Wedding</item>
+        <item>Changes at Castle Black</item>
+    </string-array>
+
+    <string-array name="seasons_info">
+        <item>Truly one of the show’s most shocking moments, the HBO series proved it had cojones when it killed off one of its main characters — and only recognizable name actors — with a quick and horrific severing of his head. Once again, that weasel Joffrey was to blame.</item>
+        <item>Robb Stark sends Theon Greyjoy to treat with his father Balon, in the hopes of winning him and his men to his cause. Instead, Theon abandons Robb, never having forgotten that he was a hostage as well as a ward, and prepares to help his father rebel once again and conquer Westeros. Upon returning to the Iron Islands, Balon sends Theon, his daughter Asha, and the rest of his navy to raid the northern coast and punish the Starks for putting down the previous rebellion.</item>
+        <item>The Red Wedding is a massacre during the War of the Five Kings arranged by Lord Walder Frey as revenge against King Robb Stark for breaking the marriage pact between House Stark and House Frey. During the massacre, King Robb, his wife, Queen Talisa, his mother, Lady Catelyn, and most of his bannermen and men-at-arms are murdered following the marriage feast and bedding of Edmure Tully and Roslin Frey.
+Unbeknownst to most, however, is the fact that the true mastermind of the Red Wedding is Tywin Lannister, who conspired with Frey and Lord Roose Bolton to betray the Northern army in return for clemency and rewards, the breaking of the marriage pact being a mere cover for the massacre</item>
+        <item>At his wedding to Margaery Tyrell, everyone’s most hated character, Joffrey Baratheon, chokes and dies after being poisoned. Joffrey’s uncle, Tyrion, and Tyrion’s young bride, Sansa Stark, are immediately accused of the crime and imprisoned.
+This is going to happen very early in the season in episode two entitled, “The Lion and the Rose,” symbolizing the joining of house Lannister and the house Tyrell.</item>
+        <item>Jon Snow is talking to Sam about the White Walkers and how Valyrian steel can kill them. Sam asks to leave Jon with Lily and the baby to become a maester. He wants to learn how to kill White Walkers. Jon grants his leave.
+Later at Castle Black, Jon Snow is told that his Uncle Benjen is still alive. But it’s a trap. And Jon Snow is killed by a rebellious faction of the Night’s Watch.</item>
+    </string-array>
+</resources>
