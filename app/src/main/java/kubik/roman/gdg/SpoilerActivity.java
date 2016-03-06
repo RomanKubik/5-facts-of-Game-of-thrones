@@ -1,12 +1,12 @@
 package kubik.roman.gdg;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -16,8 +16,9 @@ public class SpoilerActivity extends AppCompatActivity implements View.OnClickLi
 
     TextView tvTitle, tvInfo;
     Button btnPrev, btnNext;
+    ImageView imgView;
 
-    String[] info, title;
+
     int choose;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +34,46 @@ public class SpoilerActivity extends AppCompatActivity implements View.OnClickLi
         btnPrev = (Button) findViewById(R.id.btnPrev);
         btnNext = (Button) findViewById(R.id.btnNext);
 
+        imgView = (ImageView) findViewById(R.id.img);
+
         btnPrev.setOnClickListener(this);
         btnNext.setOnClickListener(this);
-
-        Resources resources = getResources();
-        title = resources.getStringArray(R.array.seasons_title);
-        info = resources.getStringArray(R.array.seasons_info);
 
         setInformation(choose);
 
     }
 
     private void setInformation(int i) {
+        String[] info, title, season;
+
+        Resources resources = getResources();
+
+        title = resources.getStringArray(R.array.seasons_title);
+        info = resources.getStringArray(R.array.seasons_info);
+        season = resources.getStringArray(R.array.seasons);
+
+        getSupportActionBar().setTitle(season[i]);
+
         tvTitle.setText(title[i]);
         tvInfo.setText(info[i]);
+        switch (i) {
+            case 0:
+                imgView.setImageDrawable(getResources().getDrawable(R.drawable.season1));
+            break;
+            case 1:
+                imgView.setImageDrawable(getResources().getDrawable(R.drawable.season2));
+                break;
+            case 2:
+                imgView.setImageDrawable(getResources().getDrawable(R.drawable.season3));
+                break;
+            case 3:
+                imgView.setImageDrawable(getResources().getDrawable(R.drawable.season4));
+                break;
+            case 4:
+                imgView.setImageDrawable(getResources().getDrawable(R.drawable.season5));
+                break;
+
+        }
         if (i != 0) {
             if (btnPrev.getVisibility() == View.INVISIBLE) {
                 btnPrev.setVisibility(View.VISIBLE);
@@ -69,9 +96,11 @@ public class SpoilerActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnPrev:
-                setInformation(--choose);
+                if (choose != 0)
+                    setInformation(--choose);
                 break;
             case R.id.btnNext:
+                if (choose != 4)
                 setInformation(++choose);
                 break;
         }
