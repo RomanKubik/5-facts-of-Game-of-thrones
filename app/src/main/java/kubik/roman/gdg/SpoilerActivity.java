@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,12 +16,13 @@ import android.widget.TextView;
  */
 public class SpoilerActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvTitle, tvInfo;
+    TextView tvTitle, tvInfo, tvLinks;
     Button btnPrev, btnNext;
     ImageView imgView;
 
-
     int choose;
+    boolean links;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +30,12 @@ public class SpoilerActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent intent = getIntent();
         choose = intent.getIntExtra("Season", 0);
+        links = intent.getBooleanExtra("Links", false);
 
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvInfo = (TextView) findViewById(R.id.tvInfo);
+        tvLinks = (TextView) findViewById(R.id.tvLinks);
+        tvLinks.setMovementMethod(LinkMovementMethod.getInstance());
 
         btnPrev = (Button) findViewById(R.id.btnPrev);
         btnNext = (Button) findViewById(R.id.btnNext);
@@ -44,18 +50,24 @@ public class SpoilerActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void setInformation(int i) {
-        String[] info, title, season;
-
         Resources resources = getResources();
 
-        title = resources.getStringArray(R.array.seasons_title);
-        info = resources.getStringArray(R.array.seasons_info);
-        season = resources.getStringArray(R.array.seasons);
+        String[] title = resources.getStringArray(R.array.seasons_title);
+        String[] info = resources.getStringArray(R.array.seasons_info);
+        String[] season = resources.getStringArray(R.array.seasons);
+
+
+        if (links) {
+            String[] youtubeLinks = resources.getStringArray(R.array.seasons_links);
+            tvLinks.setText(Html.fromHtml("<a href =" + youtubeLinks[i] + "> Click here to watch this epic scene"));
+        }
 
         getSupportActionBar().setTitle(season[i]);
 
         tvTitle.setText(title[i]);
-        tvInfo.setText(info[i]);
+        tvInfo.setText(info[i] + "\n");
+
+
         switch (i) {
             case 0:
                 imgView.setImageDrawable(getResources().getDrawable(R.drawable.season1));
@@ -72,8 +84,10 @@ public class SpoilerActivity extends AppCompatActivity implements View.OnClickLi
             case 4:
                 imgView.setImageDrawable(getResources().getDrawable(R.drawable.season5));
                 break;
-
+            default:
+                break;
         }
+
         if (i != 0) {
             if (btnPrev.getVisibility() == View.INVISIBLE) {
                 btnPrev.setVisibility(View.VISIBLE);
@@ -102,6 +116,8 @@ public class SpoilerActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btnNext:
                 if (choose != 4)
                 setInformation(++choose);
+                break;
+            default:
                 break;
         }
     }
